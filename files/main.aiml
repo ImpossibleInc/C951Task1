@@ -155,7 +155,7 @@
                         <title>Higher learning</title>
                         <button>
                             <text>Select</text>
-                            <postback>college</postback>
+                            <postback>higher learning</postback>
                         </button>
                     </card>
                 </carousel>
