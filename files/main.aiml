@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+    <topic name = "0">
+        <category>
+            <pattern>^ BEGIN ^</pattern>
+            <template>Hello. I am the career advisor bot. Would you like a suggestion for a job based off your skills and preferences?
+                <think><set name = "topic" >1</set></think>
+                <button>
+                    <text>Yes</text>
+                    <postback>yes</postback>
+                </button>
+                <button>
+                    <text>No</text>
+                    <postback>no</postback>
+                </button>
+                (type answer or press buttons to continue. Type start over at anytime to go back to beginning)
+            </template>
+        </category>
+    </topic>
+    
+    <topic name = "1">
+        <category>
+            <pattern>^ YES ^</pattern>
+            <template>Okay! What is your degree in?
+                <think><set name = "topic" >2</set></think>
+                <button>
+                    <text>Computer Science</text>
+                    <postback>computer science</postback>
+                </button>
+                <button>
+                    <text>Education</text>
+                    <postback>education</postback>
+                </button>
+                <button>
+                    <text>Other</text>
+                    <postback>other</postback>
+                </button>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>^ NO ^</pattern>
+            <template>
+                <think><set name = "topic">0</set></think>
+                Sorry for the inconvinience. If you change your mind type "begin".
+            </template>
+        </category>     
+    </topic>
+    
+    <topic name = "2">
+        <category>
+            <pattern>^ COMPUTER SCIENCE ^</pattern>
+            <template>Okay! What interests you or what are you proficent in
+                <carousel>
+                    <card>
+                        <image>https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/14202/production/_108243428_gettyimages-871148930.jpg</image>
+                        <title>AI</title>
+                        <button>
+                            <text>Select</text>
+                            <postback>ai</postback>
+                        </button>
+                    </card>
+                    <card>
+                        <image>https://www.device42.com/blog/wp-content/uploads/2023/03/14_01edge-cloud-computing.jpg</image>
+                        <title>Cloud</title>
+                        <button>
+                            <text>Select</text>
+                            <postback>cloud</postback>
+                        </button>
+                    </card>
+                    <card>
+                        <image>https://cdn.builtin.com/cdn-cgi/image/f=auto,fit=cover,w=1200,h=635,q=80/https://builtin.com/sites/www.builtin.com/files/2024-09/programming-languages.jpg</image>
+                        <title>Programming</title>
+                        <button>
+                            <text>Select</text>
+                            <postback>programming</postback>
+                        </button>
+                    </card>
+                    <card>
+                        <image>https://usabilitygeek.com/wp-content/uploads/2019/02/psychology-web-design-00-lead.jpg</image>
+                        <title>Design</title>
+                        <button>
+                            <text>Select</text>
+                            <postback>design</postback>
+                        </button>
+                    </card>
+                    <card>
+                        <image>https://infillion.com/wp-content/uploads/2024/02/Blog-Post_Video-Games.jpg</image>
+                        <title>Video Games</title>
+                        <button>
+                            <text>Select</text>
+                            <postback>video games</postback>
+                        </button>
+                    </card>
+                </carousel>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>^ AI ^</pattern>
+            <template>You should look into being a Large Language Model Engineer</template>
+        </category>
+        
+        <category>
+            <pattern>^ CLOUD ^</pattern>
+            <template>You should look into being a Cloud Computing Engineer </template>
+        </category>
+        
+        <category>
+            <pattern>^ PROGRAMMING ^</pattern>
+            <template>You should look into being a Backend Engineer</template>
+        </category>
+        
+        <category>
+            <pattern>^ DESIGN ^</pattern>
+            <template>You should look into being a Front End Engineer</template>
+        </category>
+        
+        <category>
+            <pattern>^ VIDEO GAMES ^</pattern>
+            <template>You should look into being a Game Developer</template>
+        </category>
+        
+        <category>
+            <pattern>^ EDUCATION ^</pattern>
+            <template>Okay! What interests you or what are you proficent in
+                <carousel>
+                    <card>
+                        <image>https://www.shutterstock.com/image-vector/group-kids-playing-game-on-600nw-1681963759.jpg</image>
+                        <title>Working with kids</title>
+                        <button>
+                            <text>Select</text>
+                            <postback>Working with kids</postback>
+                        </button>
+                    </card>
+                    <card>
+                        <image>https://static.vecteezy.com/system/resources/thumbnails/006/141/109/small_2x/hand-drawn-of-tangle-scrawl-sketch-abstract-scribble-chaos-doodle-pattern-isolated-on-white-background-illustration-free-vector.jpg</image>
+                        <title>chaos</title>
+                        <button>
+                            <text>Select</text>
+                            <postback>chaos</postback>
+                        </button>
+                    </card>
+                    <card>
+                        <image>https://www.insperity.com/wp-content/uploads/reverse-mentoring.png</image>
+                        <title>Mentoring students</title>
+                        <button>
+                            <text>Select</text>
+                            <postback>mentoring students</postback>
+                        </button>
+                    </card>
+                    <card>
+                        <image>https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://fdczvxmwwjwpwbeeqcth.supabase.co/storage/v1/object/public/images/0841377a-8060-4715-9bdb-4e44159851d3/dfbdbc8c-05e6-4b7c-bb0d-34fa7ff6be89.png</image>
+                        <title>Higher learning</title>
+                        <button>
+                            <text>Select</text>
+                            <postback>college</postback>
+                        </button>
+                    </card>
+                </carousel>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>^ Working with kids ^</pattern>
+            <template>You should look into being an Elementary Teacher</template>
+        </category>
+        
+        <category>
+            <pattern>^ chaos ^</pattern>
+            <template>You should look into being a Middle School Teacher</template>
+        </category>
+        
+        <category>
+            <pattern>^ mentoring students ^</pattern>
+            <template>You should look into being a High School Teacher</template>
+        </category>
+        
+        <category>
+            <pattern>^ Higher learning ^</pattern>
+            <template>You should look into being a College Proffesor</template>
+        </category>
+
+        <category>
+            <pattern>^ Other ^</pattern>
+            <template>
+                Sorry but at this time we only have suggestions for education and computer science majors. Would you like to see the suggestions we have for those?
+                <button>
+                    <text>Yes</text>
+                    <postback>yes</postback>
+                </button>
+                <button>
+                    <text>No</text>
+                    <postback>no</postback>
+                </button>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>^ YES ^</pattern>
+            <template>
+                <srai>computer science</srai>
+                <srai>education</srai>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>^ NO ^</pattern>
+            <template>
+                <think><set name = "topic">0</set></think>
+                Sorry for the inconvinience. If you change your mind type "begin".
+            </template>
+        </category>
+    </topic>
+    
+    <category>
+        <pattern>START OVER</pattern>
+        <template>
+            <think><set name = "topic">0</set></think>
+            <srai>begin</srai>
+            </template>
+    </category>
+    
+    <category>
+        <pattern> * </pattern>
+        <template>
+            I dont understand "<star />". Please answer by pressing one of the buttons or typing the answer. If you forgot the question type "repeat".
+        </template>
+    </category>
+        
+    <category>
+        <pattern>^ REPEAT ^</pattern>
+        <template><response index = "2" /></template>
+    </category>    
+</aiml>
