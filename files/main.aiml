@@ -225,7 +225,10 @@
     <category>
         <pattern> * </pattern>
         <template>
-            I dont understand "<star />". Please answer by pressing one of the buttons or typing the answer. If you forgot the question type "repeat".
+            I dont understand "<star />". Please answer by pressing one of the buttons or typing the answer. If you forgot the question type "repeat" or type "begin" to start.
+            <condition name = "topic">
+                <li><think><set name = "topic">0</set></think></li>
+            </condition>
         </template>
     </category>
         
